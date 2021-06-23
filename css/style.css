@@ -333,13 +333,13 @@ p {
   fill: white;
 }
 .backdrop{
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 1024px;
   background-color: rgba(0, 0, 0, 0.3);
   opacity: 1;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  
+  z-index: 2;
 
 }
 .backdrop.is-hidden{
@@ -348,22 +348,30 @@ pointer-events: none;
  
 }
 .modal {
-  position: relative;
-  width: 528px;
+  position: absolute;
+  width: 534px;
   height: 590px;
-  background-color: #f5f4fa;
+  background-color: #FFFFFF;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   display: flex;
   justify-content: center;
+  z-index: 2;
   
   
 }
 
+.div_test{
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
 
-
-
+.flex_checkbox{
+  display: inline-flex;
+  align-items: center;
+}
 .icon-li:hover{
   background-color: var(--akcent-color);
   
@@ -478,9 +486,11 @@ background-image: url(../images/antenna.png);}
 /* Секция 4 */
 .flex-ul-section4{
   display: flex;
+  z-index: 1;
 }
 .flex-ul-section4 img{
   display: block;
+  z-index: 1;
 }
 .flex-li-section4{
   margin-right: 30px;
@@ -558,6 +568,8 @@ border: 1px solid #6D6E75;
 
   background-color: #2F303A;
   padding-left: 15px;
+  color:#FFFFFF;
+  outline: none;
 }
 .test33{
   display: flex;
@@ -575,7 +587,7 @@ align-items: center;
 letter-spacing: 0.06em;
   background-color: var(--akcent-color);
   color: var(--background-color-buttom);
-  border-radius: 7px;
+  border-radius: 5px;
 }
 
 .test33::after{
@@ -1034,6 +1046,9 @@ form{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 40px;
+
+  margin-right: 40px;
 
 
   
@@ -1131,6 +1146,16 @@ textarea{
 .form_label{
   position: absolute;
   top:-18px;
+  font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 14px;
+
+
+letter-spacing: 0.01em;
+
+color: #757575;
 }
 
 .form_input:hover + .form_icon_name,
@@ -1158,6 +1183,7 @@ textarea::placeholder{
   border: 1px #D3D3D3 solid;
   border-radius: 5px;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding-left: 30px;
 }
 .modal_comment:hover,
 .modal_comment:focus{
@@ -1178,17 +1204,18 @@ textarea::placeholder{
     
 }
 .checkbox{
-  margin-top: 20px;
+  
   margin-right: 9px;
   width: 16px;
   height: 15px;
   border:2px solid black;
   border-radius: 4px;
   
+  
 
   display: inline-block;
 }
-.modal_checkbox:checked +.checkbox{
+.modal_checkbox:checked ~.checkbox{
   background-image: url("../sprite/galka.svg");
   background-size: contain;
   background-color: var(--akcent-color);
@@ -1224,7 +1251,7 @@ line-height: 24px;
 /* identical to box height, or 171% */
 
 letter-spacing: 0.03em;
-  text-decoration-line: underline;
+  border-bottom: 1px solid var(--akcent-color);
 }
 
 
@@ -1262,4 +1289,8 @@ line-height: 24px;
 letter-spacing: 0.03em;
 
 color: #757575;
+padding: 0;
+margin: 0;
+
+
 }
